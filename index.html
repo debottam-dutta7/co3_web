@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CO3: Contrasting Concepts Compose Better</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../coguide.github.io/static/css/bulma.min.css">
+  <link rel="stylesheet" href="../coguide.github.io/static/css/index.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <style>
+    html, body { height: 100%; }
+    body {
+      display: flex; flex-direction: column;
+      min-height: 100vh;
+      font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 17px;
+      line-height: 1.6;
+      background: #fff;
+      margin: 0;
+    }
+    main { flex: 1 0 auto; }
+
+    .container { padding-left: 15rem; padding-right: 15rem; }
+    @media (max-width: 1400px) { .container { padding-left: 6rem; padding-right: 6rem; } }
+    @media (max-width: 1024px) { .container { padding-left: 2rem; padding-right: 2rem; } }
+    @media (max-width: 768px)  { .container { padding-left: 1rem; padding-right: 1rem; } }
+
+    p, li { text-align: justify; }
+    .hero { padding-top: 2rem; padding-bottom: 1.5rem; }
+    .hero .title { text-align: center !important; margin-bottom: 0.5rem; }
+    .subtitle-meta { font-size: 1.05rem; color: #555; font-weight: 500; margin-top: 0.25rem; text-align: center; }
+    .hero .container p { text-align: center !important; }
+
+    .footer { background: #f5f5f5; padding: 0.75rem 1rem; margin-top: auto; }
+    .footer .content { margin: 0 auto; }
+    .footer p { text-align: center !important; margin: 0; }
+
+    figure { margin: 0.75rem auto; }
+    figcaption { text-align: center; font-size: 0.95rem; color: #666; margin-top: 0.5rem; }
+
+    .img-full { width: 100%; height: auto; display: block; }
+    .img-card { width: 100%; height: auto; display: block; border-radius: 12px; box-shadow: 0 6px 18px rgba(0,0,0,0.08); }
+
+    .figure-narrow { max-width: 1000px; }
+    .figure-medium { max-width: 1100px; }
+    .figure-wide { max-width: 1280px; }
+    .figure-narrow, .figure-medium, .figure-wide { width: 100%; }
+
+    .intro-figure { max-width: 1100px; }
+    .table-figure { max-width: 980px; }
+    .algo-figure { max-width: 1100px; }
+
+    .columns.tight { --bulma-column-gap: 1rem; }
+    .columns.tight .column { padding-left: 0.5rem; padding-right: 0.5rem; }
+    .method-split.mt-after { margin-bottom: 2.25rem; }
+
+    .method-split {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+    @media (max-width: 1024px) {
+      .method-split { grid-template-columns: 1fr; gap: 1.25rem; }
+    }
+
+    .section h2.title { margin-bottom: 0.5rem; font-weight: normal; }
+    .section h3.title { font-weight: normal; }
+    .method-content { max-width: 900px; margin: 0 auto; }
+    .algo-row { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 1.5rem; }
+    .algo-row figure { flex: 1; min-width: 250px; max-width: 350px; }
+
+    .qual-row {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      justify-content: center;
+      flex-wrap: nowrap;
+    }
+
+    .qual-row img {
+      height: 560px;
+      width: auto;
+      display: block;
+    }
+
+    @media (max-width: 1024px) {
+      .qual-row {
+        flex-direction: column;
+        align-items: center;
+      }
+      .qual-row img {
+        height: auto;
+        width: 100%;
+        max-width: 100%;
+      }
+    }
+
+    .links-row {
+      margin-top: 0.75rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: center;
+    }
+    .button .icon { margin-right: 0.35rem; }
+
+    /* Go to top button */
+    .go-to-top {
+      text-align: center;
+      margin: 3rem auto 2rem auto;
+      padding: 1rem 2rem;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border-radius: 50px;
+      cursor: pointer;
+      display: inline-block;
+      font-size: 1.1rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+    }
+    .go-to-top:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+    }
+    .go-to-top-container {
+      text-align: center;
+    }
+
+    /* Smooth scrolling */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* === VISUAL IMPROVEMENTS === */
+    
+    /* Alternating section backgrounds */
+    .section-alt {
+      background: linear-gradient(to bottom, #f8f9fc 0%, #ffffff 100%);
+    }
+    
+    /* Card-style figures with shadow */
+    .figure-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 1rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .figure-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    }
+    .figure-card img {
+      border-radius: 8px;
+    }
+    
+    /* Styled figure captions */
+    .caption-styled {
+      background: #f5f7fa;
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: #555;
+      border-left: 3px solid #667eea;
+    }
+    
+    /* Section spacing improvements */
+    .section {
+      padding: 1.5rem 1.5rem;
+    }
+    
+    /* Section divider */
+    .section-divider {
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, #667eea, #764ba2);
+      margin: 0.25rem 0 1rem 0;
+      border-radius: 2px;
+    }
+    
+    /* Subsection styling */
+    .section h3.title {
+      color: #444;
+      margin-top: 1.5rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid #eee;
+    }
+    .section h3.title:first-of-type {
+      border-top: none;
+      padding-top: 0;
+    }
+    
+    /* Better paragraph spacing */
+    .content p {
+      margin-bottom: 1rem;
+    }
+    
+    /* Algorithm cards */
+    .algo-row figure {
+      background: #fff;
+      border-radius: 10px;
+      padding: 0.75rem;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      transition: transform 0.2s ease;
+    }
+    .algo-row figure:hover {
+      transform: scale(1.02);
+    }
+  </style>
+</head>
+
+
+<body>
+
+  <main>
+    <section class="hero">
+      <div class="hero-body">
+        <div class="container has-text-centered">
+          <h1 class="title is-1">CO3: Contrasting Concepts Compose Better</h1>
+          <p class="subtitle-meta" style="font-size: 1.15rem; color: #333; margin-bottom: 0.25rem;">
+            Debottam Dutta &nbsp;&nbsp; Jianchong Chen &nbsp;&nbsp; Rajalaxmi Rajagopalan &nbsp;&nbsp; Yu-Lin Wei &nbsp;&nbsp; Romit Roy Choudhury
+          </p>
+          <p class="subtitle-meta" style="font-size: 1rem; color: #555; margin-bottom: 0.25rem;">
+            University of Illinois Urbana-Champaign
+          </p>
+          <p class="subtitle-meta">Under review</p>
+          <div class="links-row">
+            <a class="button is-dark is-normal is-rounded"
+              href="https://arxiv.org/abs/2509.25940" target="_blank" rel="noopener">
+              <span class="icon"><i class="ai ai-arxiv"></i></span><span>arXiv</span>
+            </a>
+            <span class="button is-light is-normal is-rounded" style="cursor: default;">
+              <span class="icon"><i class="fab fa-github"></i></span><span>Code (coming soon)</span>
+            </span>
+          </div>
+          <p class="muted" style="margin-top: 0.75rem;">
+            (TL;DR) We propose a corrective sampling strategy to improve multi-concept prompt fidelity in text-to-image diffusion models by suppressing overlapping modes.
+          </p>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="abstract" class="section">
+    <div class="container">
+      <div class="content" style="max-width: 900px; margin: 0 auto;">
+      <h2 class="title is-3">Abstract</h2>
+      <div class="section-divider"></div>
+        <p>
+          We propose an algorithm to improve multi-concept prompt fidelity in text-to-image diffusion models. We start from a common failure: prompts like "a cat and a clock" sometimes yield images where one concept is missing, faint, or colliding awkwardly with another. We hypothesize this happens when the model drifts into mixed modes that over-emphasize a single concept pattern it learned strongly during training, while the others are weakened. Instead of retraining, we introduce a corrective sampling strategy that gently suppresses regions where the joint prompt behavior overlaps too strongly with any single concept's dominant pattern, steering generation toward "pure" joint modes where all concepts can co-exist with balanced visual presence. We further show that existing multi-concept guidance schemes can operate in unstable weight regimes that amplify imbalance; we characterize favorable regions and adapt sampling to remain within them. The approach is plug-and-play, requires no model tuning, and complements standard classifier-free guidance. Experiments on diverse multi-concept prompts show consistent gains in concept coverage, relative prominence balance, and robustness, reducing dropped or distorted concepts compared to standard baselines and prior compositional methods. Results suggest that lightweight corrective guidance can substantially mitigate brittle semantic behavior in modern diffusion systems.
+        </p>
+      </div>
+    </div>
+    </section>
+
+
+<section id="method" class="section section-alt">
+    <div class="container">
+        <div class="method-content">
+        <h2 class="title is-3">Method</h2>
+        <div class="section-divider"></div>
+        <h3 class="title is-4">Problematic (Overlapping) Mode Hypothesis</h3>
+        <figure class="figure-card" style="max-width: 75%; margin: 1.5rem auto;">
+            <img src="./assets/fig1_v4.png" alt="Mode overlap illustration" class="img-full">
+            <figcaption class="caption-styled">Figure 1: The figure illustrates our hypothesis on mode overlap using a simple 2D toy example. Two modes 
+            of the distribution \(p_t(x \mid C = \text{'a cat and a dog'})\) (in <span style="color: green; font-weight: bold;">green</span> contour) has significant overlap with the modes of 
+        the individual concept distributions \(p_t(x \mid c_1 = \text{'a cat'})\) (in <span style="color: red; font-weight: bold;">red</span> contour) and \(p_t(x \mid c_2 = \text{'a dog'})\) (in <span style="color: orange; font-weight: bold;">orange</span> contour). 
+        The proposed corrector distribution suppresses these overlaps, steering the generation away from problematic modes. The arrows indicate the denoising directions.</figcaption>
+      </figure>
+    <div class="method-split">
+      <div>
+        <p>
+        T2I models like StableDiffusion sample from the modes of the learned distribution \(p(x|C)\).
+        While such models can produce high resolution images in general, the results are sometimes
+        surprisingly misaligned even for simple prompts like \(C\)="a cat and a dog". 
+        <!-- </p>
+        <p> -->
+        We hypothesize that <strong>problematic modes in \(p(x|C)\) arise when they overlap with modes of individual concept distributions \(p(x|c_i)\)</strong>. Such an overlap <strong>biases the generation toward a single concept, reducing the prominence of others</strong>.
+        </p>
+        <h3 class="title is-4">Remedy: Concept-Contrasting Corrector (CO3)</h3>
+        <p>
+        To cure this, we propose a corrector that generates samples from a distribution that assigns low probability to regions where \(p(x|C)\) overlaps with individual \(p(x|c_i)\), steering generation toward pure multi-concept modes.
+        </p>
+      </div>
+      <figure class="figure-narrow" style="max-width: 75%;">
+        <img src="./assets/co3-distn.png" alt="Corrected Distribution" class="img-full">
+        <figcaption>Proposed Concept-Contrasting Corrector (CO3) Distribution</figcaption>
+      </figure>
+    </div>
+
+      <h3 class="title is-4" style="margin-top: 2rem;">Algorithm</h3>
+      <p>
+        The CO3 algorithm consists of three key components. Below we show the algorithm boxes describing our approach.
+      </p>
+      <div class="algo-row">
+        <figure>
+          <img src="./assets/algo_1.png" alt="Algorithm 1" class="img-full">
+        </figure>
+        <figure>
+          <img src="./assets/co3-resampling.png" alt="Algorithm 2" class="img-full">
+        </figure>
+        <figure>
+          <img src="./assets/co3-corrector.png" alt="Algorithm 3" class="img-full">
+        </figure>
+      </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="results" class="section">
+    <div class="container">
+      <div class="content" style="max-width: 900px; margin: 0 auto;">
+      <h2 class="title is-3">Results</h2>
+      <div class="section-divider"></div>
+      
+      <h3 class="title is-4">Quantitative</h3>
+      <p>
+        We evaluate the generated images using two metrics: BLIP-VQA and ImageReward. The table below shows quantitative comparison of different methods on compositional generation tasks.
+      </p>
+      <figure class="figure-card">
+        <img src="./assets/tab_1.png" alt="Quantitative Results Table" class="img-full">
+        <figcaption class="caption-styled">Table 1: Quantitative comparison. Top performing model is highlighted in <strong>Black</strong> and 2nd best in <span style="color:blue"><strong>Blue</strong></span>. Higher the score the better.</figcaption>
+      </figure>
+
+      <h3 class="title is-4" style="margin-top:1.5rem;">Qualitative – Simple Prompts</h3>
+      <figure class="figure-card">
+        <img src="./assets/small_prompt_image_grid_v2.png" alt="Qualitative comparison on simple prompts" class="img-full">
+        <figcaption class="caption-styled">Figure 2: Qualitative comparison of different methods on simpler prompts.</figcaption>
+      </figure>
+
+      <h3 class="title is-4" style="margin-top:1.5rem;">Qualitative – Complex Prompts</h3>
+      <figure class="figure-card">
+        <img src="./assets/complex_prompt_comparison.png" alt="Qualitative comparison on complex prompts" class="img-full">
+        <figcaption class="caption-styled">Figure 3: Qualitative comparison of CO3 with competing methods on prompts with multiple concepts and complex scenarios.</figcaption>
+      </figure>
+      <h3 class="title is-4" style="margin-top:1.5rem;">Qualitative – Rare concept scenarios</h3>
+      <figure class="figure-card">
+        <img src="./assets/rarebench_prompt_comparison.png" alt="Qualitative comparison on rarebench prompts" class="img-full">
+        <figcaption class="caption-styled">Figure 3: Qualitative comparison of CO3 with competing methods on rare-concept scenarios.</figcaption>
+      </figure>
+      <!-- <h3 class="title is-4" style="margin-top:1.5rem;">SDXL Results</h3>
+      <p>
+        We also evaluate CO3 on SDXL, demonstrating consistent improvements.
+      </p>
+      <figure class="figure-card">
+        <img src="./assets/sdxl_prompt_image_grid_v3.png" alt="SDXL comparison" class="img-full">
+        <figcaption class="caption-styled">Figure 4: Additional qualitative comparison of SDXL, and SDXL+CO3 on simple prompts.</figcaption>
+      </figure> -->
+
+      <h3 class="title is-4" style="margin-top:1.5rem;">Model Agnostic Behavior & Efficiency</h3>
+      <div class="method-split mt-after" style="grid-template-columns: 0.6fr 1.4fr;">
+        <div>
+          <p>
+            CO3 is model-agnostic and can be applied to various diffusion model architectures.
+          </p>
+          <ul style="margin-top:0.5rem;">
+            <li>Agnostic to architectures (Unets, ViTs etc.)</li>
+            <li>Agnostic to samplers (DDIM, DPM++ etc.)</li>
+            <li>Plug-and-play, no fine-tuning, gradient-free</li>
+            <li>Takes 3x less memory than gradient-based baselines</li>
+            <li>Complements CFG</li>
+          </ul>
+        </div>
+        <figure class="figure-card" style="justify-self:end; max-width: 100%;">
+          <img src="./assets/pixart_small_prompt_image_grid_v7.png" alt="PixART comparison" class="img-full">
+          <figcaption class="caption-styled">Figure 5: <em>Model Agnostic behavior</em>: Qualitative comparison of generation from PixART-\(\Sigma\) base diffusion model, PixART-\(\Sigma\) + CO3, and PixART-\(\Sigma\) + Composable Diffusion.</figcaption>
+        </figure>
+      </div>
+
+      <!-- Go to top button -->
+      <div class="go-to-top-container" style="margin-top: 3rem;">
+        <div class="go-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">
+          ↑ Back to Top
+        </div>
+      </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  </main>
+
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p>CO3: Contrasting Concepts Compose Better – Under Review</p>
+    </div>
+  </footer>
+
+</body>
+</html>
