@@ -228,21 +228,23 @@
     <section class="hero">
       <div class="hero-body">
         <div class="container has-text-centered">
-          <h1 class="title is-1">CO3: Contrasting Concepts Compose Better</h1>
+          <h1 class="title is-1">(CO3) Steer Away From Mode Collisions: Improving Composition in Diffusion Models</h1>
           <p class="subtitle-meta" style="font-size: 1.15rem; color: #333; margin-bottom: 0.25rem;">
             Debottam Dutta &nbsp;&nbsp; Jianchong Chen &nbsp;&nbsp; Rajalaxmi Rajagopalan &nbsp;&nbsp; Yu-Lin Wei &nbsp;&nbsp; Romit Roy Choudhury
           </p>
           <p class="subtitle-meta" style="font-size: 1rem; color: #555; margin-bottom: 0.25rem;">
-            University of Illinois Urbana-Champaign
+            University of Illinois at Urbana-Champaign
           </p>
-          <p class="subtitle-meta">Under review</p>
+          <p class="subtitle-meta">ICLR'26</p>
           <div class="links-row">
             <a class="button is-dark is-normal is-rounded"
               href="https://arxiv.org/abs/2509.25940" target="_blank" rel="noopener">
               <span class="icon"><i class="ai ai-arxiv"></i></span><span>arXiv</span>
             </a>
             <span class="button is-light is-normal is-rounded" style="cursor: default;">
-              <span class="icon"><i class="fab fa-github"></i></span><span>Code (coming soon)</span>
+              <a class="button is-light is-normal is-rounded" href="https://github.com/debottam-dutta7/co3" target="_blank" rel="noopener">
+                <span class="icon"><i class="fab fa-github"></i></span><span>Code</span>
+              </a>
             </span>
           </div>
           <p class="muted" style="margin-top: 0.75rem;">
@@ -273,7 +275,7 @@
         <div class="section-divider"></div>
         <h3 class="title is-4">Problematic (Overlapping) Mode Hypothesis</h3>
         <figure class="figure-card" style="max-width: 75%; margin: 1.5rem auto;">
-            <img src="./assets/fig1_v4.png" alt="Mode overlap illustration" class="img-full">
+            <img src="./assets/fig1_v6.png" alt="Mode overlap illustration" class="img-full">
             <figcaption class="caption-styled">Figure 1: The figure illustrates our hypothesis on mode overlap using a simple 2D toy example. Two modes 
             of the distribution \(p_t(x \mid C = \text{'a cat and a dog'})\) (in <span style="color: green; font-weight: bold;">green</span> contour) has significant overlap with the modes of 
         the individual concept distributions \(p_t(x \mid c_1 = \text{'a cat'})\) (in <span style="color: red; font-weight: bold;">red</span> contour) and \(p_t(x \mid c_2 = \text{'a dog'})\) (in <span style="color: orange; font-weight: bold;">orange</span> contour). 
@@ -331,8 +333,8 @@
         We evaluate the generated images using two metrics: BLIP-VQA and ImageReward. The table below shows quantitative comparison of different methods on compositional generation tasks.
       </p>
       <figure class="figure-card">
-        <img src="./assets/simple_prompt_results.png" alt="Quantitative Results Table" class="img-full">
-        <figcaption class="caption-styled">Table 1: Quantitative comparison. Top performing model is highlighted in <strong>Black</strong> and 2nd best in <strong style="color: blue;">Blue</strong>. Higher the score the better.</figcaption>
+        <img src="./assets/table1_co3.png" alt="Quantitative Results Table" class="img-full">
+        <figcaption class="caption-styled">Table 1: Quantitative comparison. Top performing model is highlighted in <span style="display:inline-block;width:14px;height:14px;background:#ccffcc;border-radius:2px;vertical-align:middle;margin:0 3px;border:1px solid #aaddaa;"></span> and 2nd best in <span style="display:inline-block;width:14px;height:14px;background:#ccffff;border-radius:2px;vertical-align:middle;margin:0 3px;border:1px solid #aadddd;"></span>. Higher the score the better.</figcaption>
       </figure>
 
       <h3 class="title is-4" style="margin-top:1.5rem;">Qualitative – Simple Prompts</h3>
@@ -396,7 +398,7 @@
 
   <footer class="footer">
     <div class="content has-text-centered">
-      <p>CO3: Contrasting Concepts Compose Better – Under Review</p>
+      <p>Steer Away From Mode Collisions: Improving Composition in Diffusion Models – ICLR'26</p>
     </div>
   </footer>
 
